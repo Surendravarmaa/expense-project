@@ -39,7 +39,7 @@ VALIDATE $? "Enabling MySQL Server"
 systemctl start mysqld &>>$LOGFILE
 VALIDATE $? "Starting MySQL Server"
 
-mysql -h            -uroot -p${MYSQL_ROOT_PASSWORD} -e 'show databases;' &>>$LOGFILE
+mysql -h 172.31.78.233 -uroot -p${MYSQL_ROOT_PASSWORD} -e 'show databases;' &>>$LOGFILE
 if [ $? -ne 0 ]
 then 
     mysql_secure_installation --set-root-pass ${MYSQL_ROOT_PASSWORD} &>>$LOGFILE
